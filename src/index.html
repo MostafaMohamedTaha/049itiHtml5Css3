@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>html5 css3 session 2</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./dist/output.css">
+</head>
+<style>
+    .face {
+        fill: yellow;
+        stroke: white;
+        stroke-width: 1;
+    }
+
+    .eye1:hover {
+        fill: red;
+        stroke: black;
+    }
+
+    .eye2:hover {
+        fill: red;
+        stroke: black;
+    }
+
+    .mouth {
+        stroke: turquoise;
+        stroke-width: 4;
+
+    }
+
+    .mouth:hover {
+        stroke: red;
+    }
+
+    .small {
+        font: italic 13px sans-serif;
+    }
+</style>
+
+<body class="bg-slate-400">
+    <div class="flex justify-center items-center">
+
+        <button onclick="getLocation()"
+            class="bg-stone-500 text-white p-3 border-2 rounded-2xl m-3 capitalize border-teal-300">get
+            location</button>
+        <button onclick="goToLocation()"
+            class="bg-stone-500 text-white p-3 border-2 rounded-2xl m-3 capitalize border-teal-300">get
+            location</button>
+    </div>
+    <div class="grid justify-center items-center">
+
+        <div id="lat"></div>
+        <div id="long"></div>
+    </div>
+    <div ondragover="event.preventDefault()" ondrop="dropImg(event)"
+        class="border-2 border-seal-200 h-[30em] flex justify-center"></div>
+    <div class="flex justify-center">
+        <img src="http://www.picsum.photos/300/300" alt="" draggable="true" ondragstart="dragStr(event)" id="html"
+            class="m-3 rounded-2xl">
+        <img src="http://www.picsum.photos/440/440" alt="" draggable="true" ondragstart="dragStr(event)" id="js"
+            class="m-3 rounded-2xl">
+
+    </div>
+    <!-- <svg width="300" height="300" class="border-2">
+        <rect x="100" y="100" width="50" height="40" style="fill:white ;stroke:black;stroke-width:5px" />
+    </svg>
+    <canvas id="can" width="300" height="300" class="border-2 border-seal-100">
+
+    </canvas> -->
+    <div class="grid justify-center text-5xl items-center">
+
+        <?xml version="1.0" ?>
+        <svg id="Layer_1" class="w-[3em] h-[3em] " style="enable-background:new 0 0 80 80;" version="1.1"
+            viewBox="0 0 80 80" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title />
+            <g id="Layer_2">
+                <g id="Layer_3" class="fill-seal-200 stroke-slate-300">
+                    <path
+                        d="M40,5.4C20.9,5.4,5.4,20.9,5.4,40c0,19.1,15.5,34.6,34.5,34.6S74.5,59.1,74.6,40c0,0,0,0,0,0C74.5,20.9,59.1,5.5,40,5.4z     M40,71.6C22.6,71.6,8.4,57.4,8.4,40C8.4,22.6,22.6,8.4,40,8.4c17.4,0,31.6,14.1,31.6,31.5c0,0,0,0,0,0    C71.5,57.4,57.4,71.5,40,71.6z" />
+                    <path class="eye1"
+                        d="M50.7,33.4c2.8,0,5.1-2.3,5.1-5.2s-2.3-5.1-5.2-5.1c-2.8,0-5.1,2.3-5.1,5.2S47.8,33.4,50.7,33.4L50.7,33.4z M50.7,26.2    c1.2,0,2.1,1,2.1,2.2s-1,2.1-2.2,2.1c-1.2,0-2.1-1-2.1-2.2C48.5,27.1,49.5,26.2,50.7,26.2L50.7,26.2z" />
+                    <path class="eye2"
+                        d="M29.8,33.4c2.8,0,5.2-2.3,5.2-5.1s-2.3-5.1-5.1-5.2c-2.8,0-5.2,2.3-5.2,5.1c0,0,0,0,0,0C24.6,31.1,26.9,33.4,29.8,33.4z     M29.8,26.2c1.2,0,2.2,1,2.2,2.1s-1,2.2-2.2,2.2s-2.1-1-2.1-2.2l0,0C27.6,27.1,28.6,26.2,29.8,26.2L29.8,26.2z" />
+                    <path class="mouth"
+                        d="M40,56.5c-7.6,0-12.3-5.1-14.6-7.6l-2.2,2c2.4,2.6,8,8.5,16.8,8.5c8,0,13.6-5.5,16.3-8.1l-2.1-2.1    C51.6,51.8,46.8,56.5,40,56.5z" />
+                </g>
+            </g>
+        </svg>
+        <svg class="w-[3em] h-[3em] m-3 p-3">
+            <circle class="face" cx="50" cy="50" r="50" />
+            <ellipse class="eye1" cx="35" cy="35" rx="5" ry="10" />
+            <ellipse class="eye2" cx="65" cy="35" rx="5" ry="10" />
+            <line class="mouth" x1="50" y1="40" x2="50" y2="66" />
+            <line class="mouth" x1="35" y1="75" x2="65" y2="75" />
+        </svg>
+        <svg viewBox="0 0 100 100">
+            <linearGradient id="color">
+                <stop offset="0" stop-color="red" />
+                <stop offset="100" stop-color="yellow" />
+            </linearGradient>
+            <circle cx="50" cy="50" r="50" stroke="white" stroke-width="2" fill="url(#color)" />
+            <text x="12.5" y="50" class="small fill-slate-200">mostafa taha</text>
+        </svg>
+    </div>
+    <script>
+        let long = 0, lat = 0;
+        function getLocation() {
+            navigator.geolocation.getCurrentPosition((position) => {
+                lat = position.coords.latitude
+                long = position.coords.longitude
+                document.getElementById("lat").innerHTML = `lat is ${lat}`
+                document.getElementById("long").innerHTML = `long is ${long}`
+            })
+        }
+        function goToLocation() {
+            var url = `http://maps.google.com/maps?q=${lat},${long}`
+            window.open(url, 'blank')
+        }
+    </script>
+    <script>
+        let imgId = 0
+        function dragStr(e) {
+            imgId = e.target.id
+        }
+        function dropImg(e) {
+            divDrop = e.target;
+            console.log(divDrop)
+            divDrop.classList.add("bg-blue-300")
+            divDrop.appendChild(document.getElementById(imgId))
+        }
+    </script>
+
+    <script src="main.js" async defer></script>
+</body>
+
+</html>
